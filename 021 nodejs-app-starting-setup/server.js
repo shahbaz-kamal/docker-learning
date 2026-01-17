@@ -38,7 +38,7 @@ app.get('/', (req, res) => {
 
 app.post('/store-goal', (req, res) => {
   const enteredGoal = req.body.goal;
-  console.log(enteredGoal,"From Docker");
+  console.log(enteredGoal,"From Docker :");
   userGoal = enteredGoal;
   res.redirect('/');
 });
