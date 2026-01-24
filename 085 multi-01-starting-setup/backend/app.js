@@ -79,7 +79,7 @@ app.delete("/goals/:id", async (req, res) => {
 });
 
 mongoose.connect(
-  "mongodb://host.docker.internal:27017/course-goals",
+  "mongodb://mongodb:27017/course-goals",
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -90,7 +90,7 @@ mongoose.connect(
       console.error(err);
     } else {
       console.log("CONNECTED TO MONGODB");
-      app.listen(5000);
+      app.listen(80);
       console.log("Server is running on port 5000");
     }
   }
