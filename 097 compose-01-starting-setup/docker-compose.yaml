@@ -6,7 +6,9 @@ services:
       - data:/data/db
     # environment:
     #   - MONGO_INITDB_ROOT_USERNAME = tamim
-    #   - MONGO_INITDB_ROOT_PASSWORD = 12345
+    #   - MONGO_INITDB_ROOT_PASSWORD = 
+    container_name: mongodb
+
     env_file:
       - ./env/mongo.env
   backend:
