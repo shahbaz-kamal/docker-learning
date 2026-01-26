@@ -9,8 +9,28 @@ services:
     #   - MONGO_INITDB_ROOT_PASSWORD = 12345
     env_file:
       - ./env/mongo.env
-  # backened:
-  #  frontend:
-
+  backend:
+    build: ./backend
+    ports:
+      - '5000:80' 
+    volumes:
+      - logs:/app/logs
+      - ./backend:/app
+      - /app/node_modules
+    env_file:
+      - ./env/backend.env
+    depends_on:
+      - mongodb
+  frontend:
+    build: ./frontend
+    ports:
+      - '3000:3000'
+    volumes:
+      - ./frontend/src:/app/src
+    stdin_open: true
+    tty: true
+    depends_on:
+      - backend
 volumes:
   data:
+  logs:
